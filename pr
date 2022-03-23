@@ -1,0 +1,213 @@
+der = 0
+banned = 0
+ff = []
+os.system('mode con: cols=105 lines=22')
+try:
+    open('proxy.txt', 'r').read().splitlines()
+except Exception as dd:
+    input(f'{str(dd)}')
+    with open('proxy.txt', 'a') as ee:
+        ee.write('')
+    try:
+        os._exit(1)
+    except:
+        exit(1)
+print("""
+
+
+         █████╗ ██╗     ██████╗ ██╗  ██╗ █████╗     ██████╗ ██████╗  ██████╗ ██╗  ██╗██╗   ██╗
+        ██╔══██╗██║     ██╔══██╗██║  ██║██╔══██╗    ██╔══██╗██╔══██╗██╔═══██╗╚██╗██╔╝╚██╗ ██╔╝
+        ███████║██║     ██████╔╝███████║███████║    ██████╔╝██████╔╝██║   ██║ ╚███╔╝  ╚████╔╝ 
+        ██╔══██║██║     ██╔═══╝ ██╔══██║██╔══██║    ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗   ╚██╔╝  
+        ██║  ██║███████╗██║     ██║  ██║██║  ██║    ██║     ██║  ██║╚██████╔╝██╔╝ ██╗   ██║   
+        ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝
+""")
+print("""""""""""")
+print('                                          | Chose Proxy Mode |')
+print("")
+print('                                ( 1 ) Crab Proxies | ( 2 ) Check Proxies')
+print("")
+proxy_type1 = input(f'                                                   ')
+os.system('cls' if os.name == 'nt' else 'clear')
+print("""
+
+
+         █████╗ ██╗     ██████╗ ██╗  ██╗ █████╗     ██████╗ ██████╗  ██████╗ ██╗  ██╗██╗   ██╗
+        ██╔══██╗██║     ██╔══██╗██║  ██║██╔══██╗    ██╔══██╗██╔══██╗██╔═══██╗╚██╗██╔╝╚██╗ ██╔╝
+        ███████║██║     ██████╔╝███████║███████║    ██████╔╝██████╔╝██║   ██║ ╚███╔╝  ╚████╔╝ 
+        ██╔══██║██║     ██╔═══╝ ██╔══██║██╔══██║    ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗   ╚██╔╝  
+        ██║  ██║███████╗██║     ██║  ██║██║  ██║    ██║     ██║  ██║╚██████╔╝██╔╝ ██╗   ██║   
+        ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝
+""")
+print("""""""""""")
+print('                                          | Chose Proxy Type |')
+print("")
+print('                                      ( 1 ) Http/s | ( 2 ) Socks4')
+print("")
+proxy_type = input(f'                                                   ')
+os.system('cls' if os.name == 'nt' else 'clear')
+print("""
+
+
+         █████╗ ██╗     ██████╗ ██╗  ██╗ █████╗     ██████╗ ██████╗  ██████╗ ██╗  ██╗██╗   ██╗
+        ██╔══██╗██║     ██╔══██╗██║  ██║██╔══██╗    ██╔══██╗██╔══██╗██╔═══██╗╚██╗██╔╝╚██╗ ██╔╝
+        ███████║██║     ██████╔╝███████║███████║    ██████╔╝██████╔╝██║   ██║ ╚███╔╝  ╚████╔╝ 
+        ██╔══██║██║     ██╔═══╝ ██╔══██║██╔══██║    ██╔═══╝ ██╔══██╗██║   ██║ ██╔██╗   ╚██╔╝  
+        ██║  ██║███████╗██║     ██║  ██║██║  ██║    ██║     ██║  ██║╚██████╔╝██╔╝ ██╗   ██║   
+        ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝
+""")
+att, error, bad_proxy, secure, good = 0, 0, 0, 0, 0
+
+
+def grab():
+    global att, error, der
+    if proxy_type == '1':
+        LINKS = [
+            'https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt',
+            'https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http%2Bhttps.txt',
+            'https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt',
+            'https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt',
+            'https://raw.githubusercontent.com/mertguvencli/http-proxy-list/main/proxy-list/data.txt',
+            'https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all'
+        ]
+        for link in LINKS:
+            try:
+                GET = requests.get(link).text
+                if '.' in GET:
+                    att += 1
+                    ctypes.windll.kernel32.SetConsoleTitleW(
+                        f'[Done Grab {att}K Proxies] [Error Grab From Website : {error}]')
+                    with open(f'proxy-http-s[{datetime.date.today()}].txt', 'a') as sss:
+                        sss.write(f'{GET}\n')
+                else:
+                    error += 1
+                    ctypes.windll.kernel32.SetConsoleTitleW(
+                        f'[Done Grab {att}K Proxies] [Error Grab From Website : {error}]')
+
+            except:
+                error += 1
+                ctypes.windll.kernel32.SetConsoleTitleW(
+                    f'[Done Grab {att}K Proxies] [Error Grab From Website : {error}]')
+        input('                                     | All Proxies Has Been Grabbed | ')
+    elif proxy_type == '2':
+        LINKS = [
+            'https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks4.txt',
+            'https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt',
+            'https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks4.txt',
+            'https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=10000&country=all&ssl=all&anonymity=all',
+
+        ]
+        for link in LINKS:
+            try:
+                GET = requests.get(link).text
+                if '.' in GET:
+                    att += 1
+                    ctypes.windll.kernel32.SetConsoleTitleW(
+                        f'[Done Grab {att}K Proxies] [Error Grab From Website : {error}]')
+                    with open(f'proxy-socks4[{datetime.date.today()}].txt', 'a') as sss:
+                        sss.write(f'{GET}\n')
+                else:
+                    error += 1
+                    ctypes.windll.kernel32.SetConsoleTitleW(
+                        f'[Done Grab {att}K Proxies] [Error Grab From Website : {error}]')
+
+            except:
+                error += 1
+                ctypes.windll.kernel32.SetConsoleTitleW(
+                    f'[Done Grab {att}K Proxies] [Error Grab From Website : {error}]')
+
+        input('                                     | All Proxies Has Been Grabbed | ')
+
+
+ttt = 0
+
+
+def end():
+    global ttt
+    if ttt == 0:
+        ttt = 1
+        print('                                     | All Proxies Has Been Checked | ')
+
+
+def adad():
+    while True:
+        ctypes.windll.kernel32.SetConsoleTitleW(f'[Good Proxy : {att}] [Bad Proxy : {error}]')
+
+
+def checkh():
+    global error, att
+    headers_Api = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
+        'x-csrftoken': 'Kel09zcVhier8jdZqQe9MUu35FsP9b5Y'
+    }
+    url = 'https://www.instagram.com/'
+    for PR in open('proxy.txt', 'r').read().splitlines():
+        if PR in ff:
+            pass
+        else:
+            ff.append(PR)
+            time.sleep(0.000000000001)
+            try:
+                CHECK = requests.post(url=url, headers=headers_Api,
+                                      proxies={'http': f"http://{PR}", 'https': f"http://{PR}"})
+                if CHECK.status_code == 200:
+                    att += 1
+                    with open(f'TrueProxyHttp[{datetime.date.today()}].txt', 'a') as sss:
+                        sss.write(f'{PR}\n')
+                else:
+                    error += 1
+            except:
+                error += 1
+    end()
+
+
+def checks():
+    global att, error
+    headers_Api = {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36',
+        'x-csrftoken': 'Kel09zcVhier8jdZqQe9MUu35FsP9b5Y'
+    }
+    url = 'https://www.instagram.com/'
+    for PR in open('proxies.txt', 'r').read().splitlines():
+        if PR in ff:
+            pass
+        else:
+            ff.append(PR)
+            time.sleep(0.000000000001)
+            try:
+                CHECK = requests.post(url=url, headers=headers_Api,
+                                      proxies={'http': f"socks4://{PR}", 'https': f"socks4://{PR}"})
+                if CHECK.status_code == 200:
+                    att += 1
+                    with open(f'TrueProxySocks4[{datetime.date.today()}].txt', 'a') as sss:
+                        sss.write(f'{PR}\n')
+                else:
+                    error += 1
+            except:
+                error += 1
+    end()
+
+
+if proxy_type1 == '1':
+    grab()
+elif proxy_type1 == '2':
+    if proxy_type == '1':
+        threading.Thread(target=adad).start()
+        threads1 = []
+        TR = int(800)
+        for i in range(TR):
+            thread1 = threading.Thread(target=checkh)
+            thread1.start()
+            threads1.append(thread1)
+        for thread in threads1:
+            thread.join()
+    if proxy_type == '2':
+        threading.Thread(target=adad).start()
+        threads1 = []
+        TR = int(800)
+        for i in range(TR):
+            thread1 = threading.Thread(target=checks)
+            thread1.start()
+            threads1.append(thread1)
+        for thread in threads1:
+            thread.join()

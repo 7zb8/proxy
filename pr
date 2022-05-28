@@ -195,7 +195,7 @@ elif proxy_type1 == '2':
         threading.Thread(target=adad).start()
         threads1 = []
         TR = int(800)
-        while  1:
+        while True:
           for i in range(TR):
                thread1 = threading.Thread(target=checkh)
                thread1.start()

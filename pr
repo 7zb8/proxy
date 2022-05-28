@@ -199,8 +199,8 @@ elif proxy_type1 == '2':
           for i in range(TR):
                thread1 = threading.Thread(target=checkh)
                thread1.start()
-               threads1.append(thread1)
-               for thread in threads1:thread.join()
+               for thread in threads1:
+                     thread.join()
     if proxy_type == '2':
         threading.Thread(target=adad).start()
         threads1 = []
@@ -210,4 +210,5 @@ elif proxy_type1 == '2':
                thread1 = threading.Thread(target=checks)
                thread1.start()
                threads1.append(thread1)
-               for thread in threads1:thread.join()
+               for thread in threads1:
+                     thread.join()
